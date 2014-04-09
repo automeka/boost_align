@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Chapter&#160;1.&#160;Boost.Align</title>
+<link rel="stylesheet" href="http://boost.org/doc/libs/master/doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Chapter&#160;1.&#160;Boost.Align">
+<link rel="next" href="align/rationale.html" title="Rationale">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="http://boost.org/doc/libs/master/boost.png"></td>
+<td align="center"><a href="http://boost.org/doc/libs/master/index.html">Home</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/master/libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/master/more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav"><a accesskey="n" href="align/rationale.html"><img src="http://boost.org/doc/libs/master/doc/src/images/next.png" alt="Next"></a></div>
+<div class="chapter">
+<div class="titlepage"><div>
+<div><h2 class="title">
+<a name="align"></a>Chapter&#160;1.&#160;Boost.Align</h2></div>
+<div><div class="author"><h3 class="author">
+<span class="firstname">Glen</span> <span class="surname">Fernandes</span>
+</h3></div></div>
+<div><p class="copyright">Copyright &#169; 2014 Glen Fernandes</p></div>
+<div><div class="legalnotice">
+<a name="align.legal"></a><p>
+        Distributed under the <a href="http://boost.org/LICENSE_1_0.txt" target="_top">Boost
+        Software License, Version 1.0</a>.
+      </p>
+</div></div>
+</div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+<dt><span class="section"><a href="index.html#align.introduction">Introduction</a></span></dt>
+<dt><span class="section"><a href="align/rationale.html">Rationale</a></span></dt>
+<dt><span class="section"><a href="align/tutorial.html">Tutorial</a></span></dt>
+<dt><span class="section"><a href="align/examples.html">Examples</a></span></dt>
+<dt><span class="section"><a href="align/reference.html">Reference</a></span></dt>
+<dt><span class="section"><a href="align/vocabulary.html">Vocabulary</a></span></dt>
+<dt><span class="section"><a href="align/compatibility.html">Compatibility</a></span></dt>
+<dt><span class="section"><a href="align/acknowledgments.html">Acknowledgments</a></span></dt>
+<dt><span class="section"><a href="align/history.html">History</a></span></dt>
+</dl>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="align.introduction"></a><a class="link" href="index.html#align.introduction" title="Introduction">Introduction</a>
+</h2></div></div></div>
+<p>
+      This library provides function <span class="bold"><strong>align</strong></span> for implementations
+      which do not have the C++11 standard library <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">align</span></code> function
+      available.
+    </p>
+<p>
+      It provides allocation and deallocation functions, <span class="bold"><strong>aligned_alloc</strong></span>
+      and <span class="bold"><strong>aligned_free</strong></span>, as their functionality is
+      not yet available in the C++ standard library. They use platform specific functions,
+      if available, or use standard library functions in conjunction with <code class="computeroutput"><span class="identifier">align</span></code>.
+    </p>
+<p>
+      It provides C++ allocators, class templates <span class="bold"><strong>aligned_allocator</strong></span>
+      and <span class="bold"><strong>aligned_allocator_adaptor</strong></span>, which respect
+      alignment. The first uses <code class="computeroutput"><span class="identifier">aligned_alloc</span></code>
+      and <code class="computeroutput"><span class="identifier">aligned_free</span></code> while the
+      second uses the allocator in conjunction with <code class="computeroutput"><span class="identifier">align</span></code>.
+    </p>
+<p>
+      It provides a deleter, class <span class="bold"><strong>aligned_delete</strong></span>,
+      which makes use of <code class="computeroutput"><span class="identifier">aligned_free</span></code>.
+      It is suitable for use with constructed objects allocated with <code class="computeroutput"><span class="identifier">aligned_alloc</span></code>.
+    </p>
+<p>
+      It provides the class template <span class="bold"><strong>alignment_of</strong></span>
+      for implementations which do not have the C++11 standard library <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">alignment_of</span></code>
+      template available.
+    </p>
+<p>
+      It also provides function <span class="bold"><strong>is_aligned</strong></span> to test
+      the alignment of a pointer.
+    </p>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: June 10, 2014 at 19:07:54 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav"><a accesskey="n" href="align/rationale.html"><img src="http://boost.org/doc/libs/master/doc/src/images/next.png" alt="Next"></a></div>
+</body>
+</html>
