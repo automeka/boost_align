@@ -6,7 +6,7 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="../../index.html" title="Chapter&#160;1.&#160;Boost.Align">
 <link rel="up" href="../../align/reference.html#header.boost.align.aligned_allocator_adaptor_hpp" title="Header &lt;boost/align/aligned_allocator_adaptor.hpp&gt;">
-<link rel="prev" href="operator___idp34328000.html" title="Function template operator!=">
+<link rel="prev" href="operator___idp36279168.html" title="Function template operator!=">
 <link rel="next" href="aligned_allocator_adaptor/rebind.html" title="Struct template rebind">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -20,7 +20,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="operator___idp34328000.html"><img src="http://boost.org/doc/libs/master/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../align/reference.html#header.boost.align.aligned_allocator_adaptor_hpp"><img src="http://boost.org/doc/libs/master/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/master/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator_adaptor/rebind.html"><img src="http://boost.org/doc/libs/master/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="operator___idp36279168.html"><img src="http://boost.org/doc/libs/master/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../align/reference.html#header.boost.align.aligned_allocator_adaptor_hpp"><img src="http://boost.org/doc/libs/master/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/master/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator_adaptor/rebind.html"><img src="http://boost.org/doc/libs/master/doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="refentry">
 <a name="boost.alignment.aligned_allocator_adaptor"></a><div class="titlepage"></div>
@@ -51,20 +51,20 @@
   <span class="special">}</span><span class="special">;</span>
 
   <span class="comment">// <a class="link" href="aligned_allocator_adaptor.html#boost.alignment.aligned_allocator_adaptorconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="aligned_allocator_adaptor.html#idp34379776-bb"><span class="identifier">aligned_allocator_adaptor</span></a><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> A<span class="special">&gt;</span> <span class="keyword">explicit</span> <a class="link" href="aligned_allocator_adaptor.html#idp34381040-bb"><span class="identifier">aligned_allocator_adaptor</span></a><span class="special">(</span><span class="identifier">A</span> <span class="special">&amp;&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <a class="link" href="aligned_allocator_adaptor.html#idp36330800-bb"><span class="identifier">aligned_allocator_adaptor</span></a><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> A<span class="special">&gt;</span> <span class="keyword">explicit</span> <a class="link" href="aligned_allocator_adaptor.html#idp36332064-bb"><span class="identifier">aligned_allocator_adaptor</span></a><span class="special">(</span><span class="identifier">A</span> <span class="special">&amp;&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> 
-    <a class="link" href="aligned_allocator_adaptor.html#idp34386080-bb"><span class="identifier">aligned_allocator_adaptor</span></a><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator_adaptor.html" title="Class template aligned_allocator_adaptor">aligned_allocator_adaptor</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+    <a class="link" href="aligned_allocator_adaptor.html#idp36337104-bb"><span class="identifier">aligned_allocator_adaptor</span></a><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator_adaptor.html" title="Class template aligned_allocator_adaptor">aligned_allocator_adaptor</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="aligned_allocator_adaptor.html#idp34349520-bb">public member functions</a></span>
-  <span class="identifier">Allocator</span> <span class="special">&amp;</span> <a class="link" href="aligned_allocator_adaptor.html#idp34350016-bb"><span class="identifier">base</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <span class="keyword">const</span> <span class="identifier">Allocator</span> <span class="special">&amp;</span> <a class="link" href="aligned_allocator_adaptor.html#idp34352032-bb"><span class="identifier">base</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
-  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator_adaptor.html#idp34354048-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
-  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator_adaptor.html#idp34361856-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">const_void_pointer</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="aligned_allocator_adaptor.html#idp34371520-bb"><span class="identifier">deallocate</span></a><span class="special">(</span><span class="identifier">pointer</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="aligned_allocator_adaptor.html#idp36300688-bb">public member functions</a></span>
+  <span class="identifier">Allocator</span> <span class="special">&amp;</span> <a class="link" href="aligned_allocator_adaptor.html#idp36301184-bb"><span class="identifier">base</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="keyword">const</span> <span class="identifier">Allocator</span> <span class="special">&amp;</span> <a class="link" href="aligned_allocator_adaptor.html#idp36303200-bb"><span class="identifier">base</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator_adaptor.html#idp36305216-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
+  <span class="identifier">pointer</span> <a class="link" href="aligned_allocator_adaptor.html#idp36312944-bb"><span class="identifier">allocate</span></a><span class="special">(</span><span class="identifier">size_type</span><span class="special">,</span> <span class="identifier">const_void_pointer</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="aligned_allocator_adaptor.html#idp36322448-bb"><span class="identifier">deallocate</span></a><span class="special">(</span><span class="identifier">pointer</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">)</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp81466320"></a><h2>Description</h2>
+<a name="idp75307376"></a><h2>Description</h2>
 <p>Class template <a class="link" href="aligned_allocator_adaptor.html" title="Class template aligned_allocator_adaptor">aligned_allocator_adaptor</a>.</p>
 <p>
 </p>
@@ -78,7 +78,7 @@
 <p>
 </p>
 <div class="refsect2">
-<a name="idp81468880"></a><h3>Template Parameters</h3>
+<a name="idp75309936"></a><h3>Template Parameters</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem"><pre class="literallayout"><span class="keyword">typename</span> Allocator</pre></li>
 <li class="listitem">
@@ -88,17 +88,17 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp81475648"></a><h3>
+<a name="idp75316704"></a><h3>
 <a name="boost.alignment.aligned_allocator_adaptorconstruct-copy-destruct"></a><code class="computeroutput">aligned_allocator_adaptor</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idp34379776-bb"></a><span class="identifier">aligned_allocator_adaptor</span><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></pre>
+<pre class="literallayout"><a name="idp36330800-bb"></a><span class="identifier">aligned_allocator_adaptor</span><span class="special">(</span><span class="special">)</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span></pre>
 <p>Value-initializes the <code class="computeroutput">Allocator</code> base class. </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> A<span class="special">&gt;</span> <span class="keyword">explicit</span> <a name="idp34381040-bb"></a><span class="identifier">aligned_allocator_adaptor</span><span class="special">(</span><span class="identifier">A</span> <span class="special">&amp;&amp;</span> alloc<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> A<span class="special">&gt;</span> <span class="keyword">explicit</span> <a name="idp36332064-bb"></a><span class="identifier">aligned_allocator_adaptor</span><span class="special">(</span><span class="identifier">A</span> <span class="special">&amp;&amp;</span> alloc<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
 <p>Initializes the <code class="computeroutput">Allocator</code> base class with <code class="computeroutput">std::forward&lt;A&gt;(alloc)</code>.</p>
 <p><span class="bold"><strong>Require:</strong></span> <code class="computeroutput">Allocator</code> shall be constructible from <code class="computeroutput">A</code>. </p>
 <p>
@@ -106,17 +106,17 @@
 </li>
 <li class="listitem">
 <pre class="literallayout"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> U<span class="special">&gt;</span> 
-  <a name="idp34386080-bb"></a><span class="identifier">aligned_allocator_adaptor</span><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator_adaptor.html" title="Class template aligned_allocator_adaptor">aligned_allocator_adaptor</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span> other<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
+  <a name="idp36337104-bb"></a><span class="identifier">aligned_allocator_adaptor</span><span class="special">(</span><span class="keyword">const</span> <a class="link" href="aligned_allocator_adaptor.html" title="Class template aligned_allocator_adaptor">aligned_allocator_adaptor</a><span class="special">&lt;</span> <span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span> <span class="special">&gt;</span> <span class="special">&amp;</span> other<span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
 <p>Initializes the <code class="computeroutput">Allocator</code> base class with the base from other. </p>
 </li>
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp81510128"></a><h3>
-<a name="idp34349520-bb"></a><code class="computeroutput">aligned_allocator_adaptor</code> public member functions</h3>
+<a name="idp75351072"></a><h3>
+<a name="idp36300688-bb"></a><code class="computeroutput">aligned_allocator_adaptor</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">Allocator</span> <span class="special">&amp;</span> <a name="idp34350016-bb"></a><span class="identifier">base</span><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">Allocator</span> <span class="special">&amp;</span> <a name="idp36301184-bb"></a><span class="identifier">base</span><span class="special">(</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
 <p>
 </p>
 <div class="variablelist"><table border="0" class="variablelist compact">
@@ -131,7 +131,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">const</span> <span class="identifier">Allocator</span> <span class="special">&amp;</span> <a name="idp34352032-bb"></a><span class="identifier">base</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">const</span> <span class="identifier">Allocator</span> <span class="special">&amp;</span> <a name="idp36303200-bb"></a><span class="identifier">base</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span></pre>
 <p>
 </p>
 <div class="variablelist"><table border="0" class="variablelist compact">
@@ -146,7 +146,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp34354048-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp36305216-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">)</span><span class="special">;</span></pre>
 <p>
 
 </p>
@@ -181,7 +181,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp34361856-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">,</span> <span class="identifier">const_void_pointer</span> hint<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="identifier">pointer</span> <a name="idp36312944-bb"></a><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> size<span class="special">,</span> <span class="identifier">const_void_pointer</span> hint<span class="special">)</span><span class="special">;</span></pre>
 <p>
 
 </p>
@@ -222,7 +222,7 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idp34371520-bb"></a><span class="identifier">deallocate</span><span class="special">(</span><span class="identifier">pointer</span> ptr<span class="special">,</span> <span class="identifier">size_type</span> size<span class="special">)</span><span class="special">;</span></pre>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp36322448-bb"></a><span class="identifier">deallocate</span><span class="special">(</span><span class="identifier">pointer</span> ptr<span class="special">,</span> <span class="identifier">size_type</span> size<span class="special">)</span><span class="special">;</span></pre>
 <p>Deallocates the storage referenced by <code class="computeroutput">ptr</code>.</p>
 <p>
 </p>
@@ -269,7 +269,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="operator___idp34328000.html"><img src="http://boost.org/doc/libs/master/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../align/reference.html#header.boost.align.aligned_allocator_adaptor_hpp"><img src="http://boost.org/doc/libs/master/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/master/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator_adaptor/rebind.html"><img src="http://boost.org/doc/libs/master/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="operator___idp36279168.html"><img src="http://boost.org/doc/libs/master/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../align/reference.html#header.boost.align.aligned_allocator_adaptor_hpp"><img src="http://boost.org/doc/libs/master/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/master/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator_adaptor/rebind.html"><img src="http://boost.org/doc/libs/master/doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

@@ -35,8 +35,7 @@
     </p>
 <p>
       The <span class="bold"><strong>align</strong></span> function can be used to align a
-      pointer to storage and is provided for standard library implementations which
-      do not yet provide <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">align</span></code>.
+      pointer and is provided for implementations which do not yet provide <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">align</span></code>.
     </p>
 <p>
       The <span class="bold"><strong>aligned_alloc</strong></span> function can be used in
@@ -54,18 +53,16 @@
     </p>
 <p>
       The <span class="bold"><strong>aligned_delete</strong></span> class can be used in place
-      of the default deleter, <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">default_delete</span></code>,
-      to destroy and free any objects allocated with <code class="computeroutput"><span class="identifier">aligned_alloc</span></code>.
+      of <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">default_delete</span></code> to destroy and free objects
+      allocated with <code class="computeroutput"><span class="identifier">aligned_alloc</span></code>.
     </p>
 <p>
-      The <span class="bold"><strong>alignment_of</strong></span> class template can be used
-      to get the alignment of a type, and is provided for implementations which do
-      not have <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">alignment_of</span></code>.
+      The <span class="bold"><strong>alignment_of</strong></span> type trait gets the alignment
+      of a type, and is provided for implementations without <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">alignment_of</span></code>.
     </p>
 <p>
-      The <span class="bold"><strong>is_aligned</strong></span> function can be used for verification
-      or to branch to a faster code path which requires that objects have a specified
-      extended alignment.
+      The <span class="bold"><strong>is_aligned</strong></span> function can be used to compare
+      the alignment value of a pointer.
     </p>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
