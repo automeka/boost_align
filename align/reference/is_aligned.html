@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>is_aligned</title>
+<link rel="stylesheet" href="http://boost.org/doc/libs/release/doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="../../index.html" title="Chapter&#160;1.&#160;Boost.Align">
+<link rel="up" href="../reference.html" title="Reference">
+<link rel="prev" href="alignment_of.html" title="alignment_of">
+<link rel="next" href="../vocabulary.html" title="Vocabulary">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="http://boost.org/doc/libs/release/boost.png"></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/index.html">Home</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="alignment_of.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="../vocabulary.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="align.reference.is_aligned"></a><a class="link" href="is_aligned.html" title="is_aligned">is_aligned</a>
+</h3></div></div></div>
+<p>
+        The alignment validation function indicates whether or not an address is
+        a multiple of the specified alignment value. It is generally useful in assertions
+        to verify memory is correctly aligned. This functionality is not yet provided
+        by the C++ standard.
+      </p>
+<h4>
+<a name="align.reference.is_aligned.h0"></a>
+        <span class="phrase"><a name="align.reference.is_aligned.synopsis"></a></span><a class="link" href="is_aligned.html#align.reference.is_aligned.synopsis">Header
+        &lt;boost/align/is_aligned.hpp&gt;</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
+  <span class="keyword">namespace</span> <span class="identifier">alignment</span> <span class="special">{</span>
+    <span class="keyword">bool</span> <span class="identifier">is_aligned</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">alignment</span><span class="special">,</span>
+      <span class="keyword">const</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="align.reference.is_aligned.h1"></a>
+        <span class="phrase"><a name="align.reference.is_aligned.is_aligned"></a></span><a class="link" href="is_aligned.html#align.reference.is_aligned.is_aligned">Function
+        is_aligned</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">is_aligned</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">alignment</span><span class="special">,</span>
+  <span class="keyword">const</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote">
+<p>
+          <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">alignment</span></code>
+          shall be a power of two.
+        </p>
+<p>
+          <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="keyword">true</span></code>
+          if the value of <code class="computeroutput"><span class="identifier">ptr</span></code> is
+          aligned on the boundary specified by <code class="computeroutput"><span class="identifier">alignment</span></code>,
+          otherwise <code class="computeroutput"><span class="keyword">false</span></code>.
+        </p>
+</blockquote></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2014 Glen Fernandes<p>
+        Distributed under the <a href="http://boost.org/LICENSE_1_0.txt" target="_top">Boost
+        Software License, Version 1.0</a>.
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="alignment_of.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="../vocabulary.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

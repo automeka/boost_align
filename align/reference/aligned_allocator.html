@@ -1,0 +1,250 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>aligned_allocator</title>
+<link rel="stylesheet" href="http://boost.org/doc/libs/release/doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="../../index.html" title="Chapter&#160;1.&#160;Boost.Align">
+<link rel="up" href="../reference.html" title="Reference">
+<link rel="prev" href="aligned_alloc.html" title="aligned_alloc and aligned_free">
+<link rel="next" href="aligned_allocator_adaptor.html" title="aligned_allocator_adaptor">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="http://boost.org/doc/libs/release/boost.png"></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/index.html">Home</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="aligned_alloc.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator_adaptor.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="align.reference.aligned_allocator"></a><a class="link" href="aligned_allocator.html" title="aligned_allocator">aligned_allocator</a>
+</h3></div></div></div>
+<p>
+        The aligned allocator is a replacement for the default allocator, <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">allocator</span></code>,
+        that supports value types which are over-aligned. It also allows specifying
+        a minimum alignment value used for all allocations, via the optional template
+        parameter. An alignment aware allocator is not yet provided by the C++ standard.
+      </p>
+<div class="tip"><table border="0" summary="Tip">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="http://boost.org/doc/libs/release/doc/src/images/tip.png"></td>
+<th align="left">Tip</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+          Using the aligned allocator with a minimum alignment value is generally
+          only suitable with containers that are not node-based such as vector. With
+          node-based containers, such as list, the node object would have the minimum
+          alignment instead of the value type object.
+        </p></td></tr>
+</table></div>
+<h4>
+<a name="align.reference.aligned_allocator.h0"></a>
+        <span class="phrase"><a name="align.reference.aligned_allocator.synopsis"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.synopsis">Header
+        &lt;boost/align/aligned_allocator.hpp&gt;</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
+  <span class="keyword">namespace</span> <span class="identifier">alignment</span> <span class="special">{</span>
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span> <span class="special">=</span> <span class="number">1</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">;</span>
+
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+    <span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;;</span>
+
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">T2</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T1</span><span class="special">,</span>
+      <span class="identifier">Alignment</span><span class="special">&gt;&amp;,</span> <span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T2</span><span class="special">,</span>
+      <span class="identifier">Alignment</span><span class="special">&gt;&amp;)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">T2</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T1</span><span class="special">,</span>
+      <span class="identifier">Alignment</span><span class="special">&gt;&amp;,</span> <span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T2</span><span class="special">,</span>
+      <span class="identifier">Alignment</span><span class="special">&gt;&amp;)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+  <span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="align.reference.aligned_allocator.h1"></a>
+        <span class="phrase"><a name="align.reference.aligned_allocator.aligned_allocator"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.aligned_allocator">Class
+        template aligned_allocator</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span> <span class="special">=</span> <span class="number">1</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;</span> <span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+  <span class="keyword">typedef</span> <span class="keyword">void</span> <span class="identifier">value_type</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">pointer</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">const_pointer</span><span class="special">;</span>
+
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
+  <span class="keyword">struct</span> <span class="identifier">rebind</span> <span class="special">{</span>
+    <span class="keyword">typedef</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;</span> <span class="identifier">other</span><span class="special">;</span>
+  <span class="special">};</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">aligned_allocator</span> <span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+  <span class="keyword">typedef</span> <span class="identifier">T</span> <span class="identifier">value_type</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="identifier">T</span><span class="special">*</span> <span class="identifier">pointer</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="identifier">T</span><span class="special">*</span> <span class="identifier">const_pointer</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">void_pointer</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">const_void_pointer</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size_type</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">ptrdiff_t</span> <span class="identifier">difference_type</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="identifier">T</span><span class="special">&amp;</span> <span class="identifier">reference</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="identifier">T</span><span class="special">&amp;</span> <span class="identifier">const_reference</span><span class="special">;</span>
+
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
+  <span class="keyword">struct</span> <span class="identifier">rebind</span> <span class="special">{</span>
+    <span class="keyword">typedef</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;</span> <span class="identifier">other</span><span class="special">;</span>
+  <span class="special">};</span>
+
+  <span class="identifier">aligned_allocator</span><span class="special">()</span> <span class="keyword">noexcept</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
+
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
+  <span class="identifier">aligned_allocator</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">U</span><span class="special">,</span>
+    <span class="identifier">Alignment</span><span class="special">&gt;&amp;)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+
+  <span class="identifier">pointer</span> <span class="identifier">address</span><span class="special">(</span><span class="identifier">reference</span> <span class="identifier">value</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+
+  <span class="identifier">const_pointer</span> <span class="identifier">address</span><span class="special">(</span><span class="identifier">const_reference</span> <span class="identifier">value</span><span class="special">)</span>
+    <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+
+  <span class="identifier">pointer</span> <span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> <span class="identifier">size</span><span class="special">,</span>
+    <span class="identifier">const_void_pointer</span> <span class="special">=</span> <span class="number">0</span><span class="special">);</span>
+
+  <span class="keyword">void</span> <span class="identifier">deallocate</span><span class="special">(</span><span class="identifier">pointer</span> <span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">);</span>
+
+  <span class="identifier">size_type</span> <span class="identifier">max_size</span><span class="special">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">,</span> <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+  <span class="keyword">void</span> <span class="identifier">construct</span><span class="special">(</span><span class="identifier">U</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
+
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
+  <span class="keyword">void</span> <span class="identifier">destroy</span><span class="special">(</span><span class="identifier">U</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">);</span>
+<span class="special">};</span>
+</pre>
+<h4>
+<a name="align.reference.aligned_allocator.h2"></a>
+        <span class="phrase"><a name="align.reference.aligned_allocator.members"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.members">Members</a>
+      </h4>
+<p>
+        Except for the destructor, member functions of the aligned allocator shall
+        not introduce data races as a result of concurrent calls to those member
+        functions from different threads. Calls to these functions that allocate
+        or deallocate a particular unit of storage shall occur in a single total
+        order, and each such deallocation call shall happen before the next allocation
+        (if any) in this order.
+      </p>
+<pre class="programlisting"><span class="identifier">pointer</span> <span class="identifier">address</span><span class="special">(</span><span class="identifier">reference</span> <span class="identifier">value</span><span class="special">)</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="bold"><strong>Returns:</strong></span> The actual address of the object
+          referenced by <code class="computeroutput"><span class="identifier">value</span></code>, even
+          in the presence of an overloaded <code class="computeroutput"><span class="keyword">operator</span><span class="special">&amp;</span></code>.
+        </p></blockquote></div>
+<pre class="programlisting"><span class="identifier">const_pointer</span> <span class="identifier">address</span><span class="special">(</span><span class="identifier">const_reference</span> <span class="identifier">value</span><span class="special">)</span>
+  <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="bold"><strong>Returns:</strong></span> The actual address of the object
+          referenced by <code class="computeroutput"><span class="identifier">value</span></code>, even
+          in the presence of an overloaded <code class="computeroutput"><span class="keyword">operator</span><span class="special">&amp;</span></code>.
+        </p></blockquote></div>
+<pre class="programlisting"><span class="identifier">pointer</span> <span class="identifier">allocate</span><span class="special">(</span><span class="identifier">size_type</span> <span class="identifier">size</span><span class="special">,</span>
+  <span class="identifier">const_void_pointer</span> <span class="special">=</span> <span class="number">0</span><span class="special">);</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote">
+<p>
+          <span class="bold"><strong>Returns:</strong></span> A pointer to the initial element
+          of an array of storage of size <code class="computeroutput"><span class="identifier">n</span>
+          <span class="special">*</span> <span class="keyword">sizeof</span><span class="special">(</span><span class="identifier">T</span><span class="special">)</span></code>,
+          aligned on the maximum of the minimum alignment specified and the alignment
+          of objects of type <code class="computeroutput"><span class="identifier">T</span></code>.
+        </p>
+<p>
+          <span class="bold"><strong>Remark:</strong></span> The storage is obtained by calling
+          <code class="computeroutput"><span class="identifier">aligned_alloc</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">)</span></code>.
+        </p>
+<p>
+          <span class="bold"><strong>Throws:</strong></span> <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_alloc</span></code>
+          if the storage cannot be obtained.
+        </p>
+</blockquote></div>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">deallocate</span><span class="special">(</span><span class="identifier">pointer</span> <span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">size_type</span><span class="special">);</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote">
+<p>
+          <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">ptr</span></code>
+          shall be a pointer value obtained from <code class="computeroutput"><span class="identifier">allocate</span><span class="special">()</span></code>.
+        </p>
+<p>
+          <span class="bold"><strong>Effects:</strong></span> Deallocates the storage referenced
+          by <code class="computeroutput"><span class="identifier">ptr</span></code>.
+        </p>
+<p>
+          <span class="bold"><strong>Remark:</strong></span> Uses <code class="computeroutput"><span class="identifier">alignment</span><span class="special">::</span><span class="identifier">aligned_free</span><span class="special">(</span><span class="keyword">void</span><span class="special">*)</span></code>.
+        </p>
+</blockquote></div>
+<pre class="programlisting"><span class="identifier">size_type</span> <span class="identifier">max_size</span><span class="special">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span><span class="special">;</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="bold"><strong>Returns:</strong></span> The largest value <code class="computeroutput"><span class="identifier">N</span></code> for which the call <code class="computeroutput"><span class="identifier">allocate</span><span class="special">(</span><span class="identifier">N</span><span class="special">)</span></code>
+          might succeed.
+        </p></blockquote></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">,</span> <span class="keyword">class</span><span class="special">...</span> <span class="identifier">Args</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">construct</span><span class="special">(</span><span class="identifier">U</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">Args</span><span class="special">&amp;&amp;...</span> <span class="identifier">args</span><span class="special">);</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="bold"><strong>Effects:</strong></span> <code class="computeroutput"><span class="special">::</span><span class="keyword">new</span><span class="special">((</span><span class="keyword">void</span><span class="special">*)</span><span class="identifier">ptr</span><span class="special">)</span> <span class="identifier">U</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">forward</span><span class="special">&lt;</span><span class="identifier">Args</span><span class="special">&gt;(</span><span class="identifier">args</span><span class="special">)...)</span></code>
+        </p></blockquote></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">destroy</span><span class="special">(</span><span class="identifier">U</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">);</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="bold"><strong>Effects:</strong></span> <code class="computeroutput"><span class="identifier">ptr</span><span class="special">-&gt;~</span><span class="identifier">U</span><span class="special">()</span></code>
+        </p></blockquote></div>
+<h4>
+<a name="align.reference.aligned_allocator.h3"></a>
+        <span class="phrase"><a name="align.reference.aligned_allocator.globals"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.globals">Globals</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">T2</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+<span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T1</span><span class="special">,</span>
+  <span class="identifier">Alignment</span><span class="special">&gt;&amp;,</span> <span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T2</span><span class="special">,</span>
+  <span class="identifier">Alignment</span><span class="special">&gt;&amp;)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="keyword">true</span></code>.
+        </p></blockquote></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">T2</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+<span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T1</span><span class="special">,</span>
+  <span class="identifier">Alignment</span><span class="special">&gt;&amp;,</span> <span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T2</span><span class="special">,</span>
+  <span class="identifier">Alignment</span><span class="special">&gt;&amp;)</span> <span class="keyword">noexcept</span><span class="special">;</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+          <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="keyword">false</span></code>.
+        </p></blockquote></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2014 Glen Fernandes<p>
+        Distributed under the <a href="http://boost.org/LICENSE_1_0.txt" target="_top">Boost
+        Software License, Version 1.0</a>.
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="aligned_alloc.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator_adaptor.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

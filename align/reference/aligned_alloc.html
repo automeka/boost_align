@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>aligned_alloc and aligned_free</title>
+<link rel="stylesheet" href="http://boost.org/doc/libs/release/doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="../../index.html" title="Chapter&#160;1.&#160;Boost.Align">
+<link rel="up" href="../reference.html" title="Reference">
+<link rel="prev" href="../reference.html" title="Reference">
+<link rel="next" href="aligned_allocator.html" title="aligned_allocator">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="http://boost.org/doc/libs/release/boost.png"></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/index.html">Home</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="http://boost.org/doc/libs/release/more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="align.reference.aligned_alloc"></a><a class="link" href="aligned_alloc.html" title="aligned_alloc and aligned_free">aligned_alloc and aligned_free</a>
+</h3></div></div></div>
+<p>
+        The aligned allocation function is a replacement for <code class="computeroutput"><span class="special">::</span><span class="keyword">operator</span> <span class="keyword">new</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">no_throw_t</span><span class="special">&amp;)</span></code> that allows requesting aligned memory.
+        The deallocation function replaces the corresponding <code class="computeroutput"><span class="special">::</span><span class="keyword">operator</span> <span class="keyword">delete</span><span class="special">(</span><span class="keyword">void</span><span class="special">*)</span></code>
+        function. This functionality is not yet provided by the C++ standard.
+      </p>
+<h4>
+<a name="align.reference.aligned_alloc.h0"></a>
+        <span class="phrase"><a name="align.reference.aligned_alloc.synopsis"></a></span><a class="link" href="aligned_alloc.html#align.reference.aligned_alloc.synopsis">Header
+        &lt;boost/align/aligned_alloc.hpp&gt;</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
+  <span class="keyword">namespace</span> <span class="identifier">alignment</span> <span class="special">{</span>
+    <span class="keyword">void</span><span class="special">*</span> <span class="identifier">aligned_alloc</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">alignment</span><span class="special">,</span>
+      <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">);</span>
+
+    <span class="keyword">void</span> <span class="identifier">aligned_free</span><span class="special">(</span><span class="keyword">void</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">);</span>
+  <span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<h4>
+<a name="align.reference.aligned_alloc.h1"></a>
+        <span class="phrase"><a name="align.reference.aligned_alloc.aligned_alloc"></a></span><a class="link" href="aligned_alloc.html#align.reference.aligned_alloc.aligned_alloc">Function
+        aligned_alloc</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">void</span><span class="special">*</span> <span class="identifier">aligned_alloc</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">alignment</span><span class="special">,</span>
+  <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">);</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote">
+<p>
+          <span class="bold"><strong>Effects:</strong></span> Allocates space for an object
+          whose alignment is specified by <code class="computeroutput"><span class="identifier">alignment</span></code>,
+          whose size is specified by <code class="computeroutput"><span class="identifier">size</span></code>,
+          and whose value is indeterminate. The value of <code class="computeroutput"><span class="identifier">alignment</span></code>
+          shall be a power of two.
+        </p>
+<p>
+          <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">alignment</span></code>
+          shall be a power of two.
+        </p>
+<p>
+          <span class="bold"><strong>Returns:</strong></span> A null pointer or a pointer to
+          the allocated space.
+        </p>
+<p>
+          <span class="bold"><strong>Note:</strong></span> On certain platforms, the alignment
+          may be rounded up to <code class="computeroutput"><span class="keyword">alignof</span><span class="special">(</span><span class="keyword">void</span><span class="special">*)</span></code>
+          and the space allocated may be slightly larger than <code class="computeroutput"><span class="identifier">size</span></code>
+          bytes, by an additional <code class="computeroutput"><span class="keyword">sizeof</span><span class="special">(</span><span class="keyword">void</span><span class="special">*)</span></code>
+          and <code class="computeroutput"><span class="identifier">alignment</span> <span class="special">-</span>
+          </code>1 bytes.
+        </p>
+</blockquote></div>
+<h4>
+<a name="align.reference.aligned_alloc.h2"></a>
+        <span class="phrase"><a name="align.reference.aligned_alloc.aligned_free"></a></span><a class="link" href="aligned_alloc.html#align.reference.aligned_alloc.aligned_free">Function
+        aligned_free</a>
+      </h4>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">aligned_free</span><span class="special">(</span><span class="keyword">void</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">);</span>
+</pre>
+<div class="blockquote"><blockquote class="blockquote">
+<p>
+          <span class="bold"><strong>Effects:</strong></span> Causes the space pointed to by
+          <code class="computeroutput"><span class="identifier">ptr</span></code> to be deallocated,
+          that is, made available for further allocation. If <code class="computeroutput"><span class="identifier">ptr</span></code>
+          is a null pointer, no action occurs. Otherwise, if the argument does not
+          match a pointer earlier returned by the <code class="computeroutput"><span class="identifier">aligned_alloc</span></code>
+          function, or if the space has been deallocated by a call to <code class="computeroutput"><span class="identifier">aligned_free</span></code>, the behavior is undefined.
+        </p>
+<p>
+          <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">ptr</span></code>
+          is a null pointer or a pointer earlier returned by the <code class="computeroutput"><span class="identifier">aligned_alloc</span></code>
+          function that has not been deallocated by a call to <code class="computeroutput"><span class="identifier">aligned_free</span></code>.
+        </p>
+<p>
+          <span class="bold"><strong>Returns:</strong></span> The <code class="computeroutput"><span class="identifier">aligned_free</span></code>
+          function returns no value.
+        </p>
+</blockquote></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright &#169; 2014 Glen Fernandes<p>
+        Distributed under the <a href="http://boost.org/LICENSE_1_0.txt" target="_top">Boost
+        Software License, Version 1.0</a>.
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../reference.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="aligned_allocator.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
