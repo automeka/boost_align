@@ -43,11 +43,11 @@
           smart pointer but the adaptor will expose only raw pointer types.
         </p></td></tr>
 </table></div>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator_adaptor.h0"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator_adaptor.synopsis"></a></span><a class="link" href="aligned_allocator_adaptor.html#align.reference.aligned_allocator_adaptor.synopsis">Header
         &lt;boost/align/aligned_allocator_adaptor.hpp&gt;</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
   <span class="keyword">namespace</span> <span class="identifier">alignment</span> <span class="special">{</span>
     <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Allocator</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span> <span class="special">=</span> <span class="number">1</span><span class="special">&gt;</span>
@@ -65,11 +65,11 @@
   <span class="special">}</span>
 <span class="special">}</span>
 </pre>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator_adaptor.h1"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator_adaptor.aligned_allocator_adaptor"></a></span><a class="link" href="aligned_allocator_adaptor.html#align.reference.aligned_allocator_adaptor.aligned_allocator_adaptor">Class
         template aligned_allocator_adaptor</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Allocator</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span> <span class="special">=</span> <span class="number">1</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">aligned_allocator_adaptor</span>
   <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">Allocator</span> <span class="special">{</span>
@@ -114,10 +114,10 @@
   <span class="keyword">void</span> <span class="identifier">deallocate</span><span class="special">(</span><span class="identifier">pointer</span> <span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">size_type</span> <span class="identifier">size</span><span class="special">);</span>
 <span class="special">};</span>
 </pre>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator_adaptor.h2"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator_adaptor.constructors"></a></span><a class="link" href="aligned_allocator_adaptor.html#align.reference.aligned_allocator_adaptor.constructors">Constructors</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="identifier">aligned_allocator_adaptor</span><span class="special">()</span> <span class="special">=</span> <span class="keyword">default</span><span class="special">;</span>
 </pre>
 <div class="blockquote"><blockquote class="blockquote"><p>
@@ -150,10 +150,10 @@
           <span class="bold"><strong>Effects:</strong></span> Initializes the <code class="computeroutput"><span class="identifier">Allocator</span></code> base class with <code class="computeroutput"><span class="identifier">other</span><span class="special">.</span><span class="identifier">base</span><span class="special">()</span></code>.
         </p>
 </blockquote></div>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator_adaptor.h3"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator_adaptor.members"></a></span><a class="link" href="aligned_allocator_adaptor.html#align.reference.aligned_allocator_adaptor.members">Members</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="identifier">Allocator</span><span class="special">&amp;</span> <span class="identifier">base</span><span class="special">()</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <div class="blockquote"><blockquote class="blockquote"><p>
@@ -241,17 +241,17 @@
           unspecified.
         </p>
 </blockquote></div>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator_adaptor.h4"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator_adaptor.globals"></a></span><a class="link" href="aligned_allocator_adaptor.html#align.reference.aligned_allocator_adaptor.globals">Globals</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">A1</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">A2</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
 <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator_adaptor</span><span class="special">&lt;</span><span class="identifier">A1</span><span class="special">,</span>
   <span class="identifier">Alignment</span><span class="special">&gt;&amp;</span> <span class="identifier">a1</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">aligned_allocator_adaptor</span><span class="special">&lt;</span><span class="identifier">A2</span><span class="special">,</span>
   <span class="identifier">Alignment</span><span class="special">&gt;&amp;</span> <span class="identifier">a2</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <div class="blockquote"><blockquote class="blockquote"><p>
-          <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="identifier">a</span><span class="special">.</span><span class="identifier">base</span><span class="special">()</span> <span class="special">==</span> <span class="identifier">b</span><span class="special">.</span><span class="identifier">base</span><span class="special">()</span></code>
+          <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="identifier">a1</span><span class="special">.</span><span class="identifier">base</span><span class="special">()</span> <span class="special">==</span> <span class="identifier">a2</span><span class="special">.</span><span class="identifier">base</span><span class="special">()</span></code>
         </p></blockquote></div>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">A1</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">A2</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
 <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator_adaptor</span><span class="special">&lt;</span><span class="identifier">A1</span><span class="special">,</span>
@@ -259,7 +259,7 @@
   <span class="identifier">Alignment</span><span class="special">&gt;&amp;</span> <span class="identifier">a2</span><span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span>
 </pre>
 <div class="blockquote"><blockquote class="blockquote"><p>
-          <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="special">!(</span><span class="identifier">a</span> <span class="special">==</span> <span class="identifier">b</span><span class="special">)</span></code>
+          <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="special">!(</span><span class="identifier">a1</span> <span class="special">==</span> <span class="identifier">a2</span><span class="special">)</span></code>
         </p></blockquote></div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>

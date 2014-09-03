@@ -44,11 +44,11 @@
           alignment instead of the value type object.
         </p></td></tr>
 </table></div>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator.h0"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator.synopsis"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.synopsis">Header
         &lt;boost/align/aligned_allocator.hpp&gt;</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
   <span class="keyword">namespace</span> <span class="identifier">alignment</span> <span class="special">{</span>
     <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span> <span class="special">=</span> <span class="number">1</span><span class="special">&gt;</span>
@@ -69,11 +69,11 @@
   <span class="special">}</span>
 <span class="special">}</span>
 </pre>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator.h1"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator.aligned_allocator"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.aligned_allocator">Class
         template aligned_allocator</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span> <span class="special">=</span> <span class="number">1</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">;</span>
 
@@ -133,10 +133,10 @@
   <span class="keyword">void</span> <span class="identifier">destroy</span><span class="special">(</span><span class="identifier">U</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">);</span>
 <span class="special">};</span>
 </pre>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator.h2"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator.members"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.members">Members</a>
-      </h4>
+      </h5>
 <p>
         Except for the destructor, member functions of the aligned allocator shall
         not introduce data races as a result of concurrent calls to those member
@@ -213,10 +213,10 @@
 <div class="blockquote"><blockquote class="blockquote"><p>
           <span class="bold"><strong>Effects:</strong></span> <code class="computeroutput"><span class="identifier">ptr</span><span class="special">-&gt;~</span><span class="identifier">U</span><span class="special">()</span></code>
         </p></blockquote></div>
-<h4>
+<h5>
 <a name="align.reference.aligned_allocator.h3"></a>
         <span class="phrase"><a name="align.reference.aligned_allocator.globals"></a></span><a class="link" href="aligned_allocator.html#align.reference.aligned_allocator.globals">Globals</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">T2</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
 <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span><span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T1</span><span class="special">,</span>
   <span class="identifier">Alignment</span><span class="special">&gt;&amp;,</span> <span class="keyword">const</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">T2</span><span class="special">,</span>

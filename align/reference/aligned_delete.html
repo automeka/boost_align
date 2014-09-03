@@ -32,22 +32,22 @@
         provided in this library. It serves as a replacement for the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">default_delete</span></code>
         class.
       </p>
-<h4>
+<h5>
 <a name="align.reference.aligned_delete.h0"></a>
         <span class="phrase"><a name="align.reference.aligned_delete.synopsis"></a></span><a class="link" href="aligned_delete.html#align.reference.aligned_delete.synopsis">Header
         &lt;boost/align/aligned_delete.hpp&gt;</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span> <span class="special">{</span>
   <span class="keyword">namespace</span> <span class="identifier">alignment</span> <span class="special">{</span>
     <span class="keyword">class</span> <span class="identifier">aligned_delete</span><span class="special">;</span>
   <span class="special">}</span>
 <span class="special">}</span>
 </pre>
-<h4>
+<h5>
 <a name="align.reference.aligned_delete.h1"></a>
         <span class="phrase"><a name="align.reference.aligned_delete.aligned_delete"></a></span><a class="link" href="aligned_delete.html#align.reference.aligned_delete.aligned_delete">Class
         aligned_delete</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">class</span> <span class="identifier">aligned_delete</span> <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
@@ -55,10 +55,10 @@
     <span class="keyword">noexcept</span><span class="special">(</span><span class="keyword">noexcept</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">-&gt;~</span><span class="identifier">T</span><span class="special">()));</span>
 <span class="special">};</span>
 </pre>
-<h4>
+<h5>
 <a name="align.reference.aligned_delete.h2"></a>
         <span class="phrase"><a name="align.reference.aligned_delete.members"></a></span><a class="link" href="aligned_delete.html#align.reference.aligned_delete.members">Members</a>
-      </h4>
+      </h5>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
 <span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()(</span><span class="identifier">T</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">)</span> <span class="keyword">const</span>
   <span class="keyword">noexcept</span><span class="special">(</span><span class="keyword">noexcept</span><span class="special">(</span><span class="identifier">ptr</span><span class="special">-&gt;~</span><span class="identifier">T</span><span class="special">()));</span>
