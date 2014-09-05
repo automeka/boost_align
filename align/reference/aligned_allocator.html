@@ -75,22 +75,6 @@
         template aligned_allocator</a>
       </h5>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span> <span class="special">=</span> <span class="number">1</span><span class="special">&gt;</span>
-<span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">;</span>
-
-<span class="keyword">template</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
-<span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;</span> <span class="special">{</span>
-<span class="keyword">public</span><span class="special">:</span>
-  <span class="keyword">typedef</span> <span class="keyword">void</span> <span class="identifier">value_type</span><span class="special">;</span>
-  <span class="keyword">typedef</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">pointer</span><span class="special">;</span>
-  <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">const_pointer</span><span class="special">;</span>
-
-  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
-  <span class="keyword">struct</span> <span class="identifier">rebind</span> <span class="special">{</span>
-    <span class="keyword">typedef</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;</span> <span class="identifier">other</span><span class="special">;</span>
-  <span class="special">};</span>
-<span class="special">};</span>
-
-<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">aligned_allocator</span> <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="keyword">typedef</span> <span class="identifier">T</span> <span class="identifier">value_type</span><span class="special">;</span>
@@ -131,6 +115,19 @@
 
   <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
   <span class="keyword">void</span> <span class="identifier">destroy</span><span class="special">(</span><span class="identifier">U</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">);</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">Alignment</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;</span> <span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+  <span class="keyword">typedef</span> <span class="keyword">void</span> <span class="identifier">value_type</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">pointer</span><span class="special">;</span>
+  <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">void</span><span class="special">*</span> <span class="identifier">const_pointer</span><span class="special">;</span>
+
+  <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
+  <span class="keyword">struct</span> <span class="identifier">rebind</span> <span class="special">{</span>
+    <span class="keyword">typedef</span> <span class="identifier">aligned_allocator</span><span class="special">&lt;</span><span class="identifier">U</span><span class="special">,</span> <span class="identifier">Alignment</span><span class="special">&gt;</span> <span class="identifier">other</span><span class="special">;</span>
+  <span class="special">};</span>
 <span class="special">};</span>
 </pre>
 <h5>
