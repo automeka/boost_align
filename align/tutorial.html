@@ -7,7 +7,7 @@
 <link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Align">
 <link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Align">
 <link rel="prev" href="rationale.html" title="Rationale">
-<link rel="next" href="tutorial/align.html" title="align">
+<link rel="next" href="tutorial/aligned_alloc.html" title="aligned_alloc and aligned_free">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,14 +20,14 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="rationale.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="tutorial/align.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="rationale.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="tutorial/aligned_alloc.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="align.tutorial"></a><a class="link" href="tutorial.html" title="Tutorial">Tutorial</a>
 </h2></div></div></div>
 <div class="toc"><dl class="toc">
-<dt><span class="section"><a href="tutorial/align.html">align</a></span></dt>
+<dt><span class="section"><a href="tutorial.html#align.tutorial.align">align</a></span></dt>
 <dt><span class="section"><a href="tutorial/aligned_alloc.html">aligned_alloc and aligned_free</a></span></dt>
 <dt><span class="section"><a href="tutorial/aligned_allocator.html">aligned_allocator</a></span></dt>
 <dt><span class="section"><a href="tutorial/aligned_allocator_adaptor.html">aligned_allocator_adaptor</a></span></dt>
@@ -35,6 +35,45 @@
 <dt><span class="section"><a href="tutorial/alignment_of.html">alignment_of</a></span></dt>
 <dt><span class="section"><a href="tutorial/is_aligned.html">is_aligned</a></span></dt>
 </dl></div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="align.tutorial.align"></a><a class="link" href="tutorial.html#align.tutorial.align" title="align">align</a>
+</h3></div></div></div>
+<p>
+        The alignment function can be used to find the first address of a given alignment
+        value within a given buffer of a given size. It adjusts the pointer provided,
+        returns that value, and decreases space by the amount advanced, if the alignment
+        succeeds, provided sufficient space in the buffer. Otherwise it yields a
+        null pointer to indicate failure due to insufficient space.
+      </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">align</span><span class="special">/</span><span class="identifier">align</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
+<span class="keyword">inline</span> <span class="identifier">T</span><span class="special">*</span> <span class="identifier">make</span><span class="special">(</span><span class="keyword">void</span><span class="special">*</span> <span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">space</span><span class="special">)</span>
+<span class="special">{</span>
+  <span class="keyword">void</span><span class="special">*</span> <span class="identifier">p</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">alignment</span><span class="special">::</span>
+    <span class="identifier">align</span><span class="special">(</span><span class="keyword">alignof</span><span class="special">(</span><span class="identifier">T</span><span class="special">),</span> <span class="keyword">sizeof</span><span class="special">(</span><span class="identifier">T</span><span class="special">),</span> <span class="identifier">ptr</span><span class="special">,</span> <span class="identifier">space</span><span class="special">);</span>
+  <span class="keyword">if</span> <span class="special">(</span><span class="identifier">p</span><span class="special">)</span> <span class="special">{</span>
+    <span class="keyword">return</span> <span class="special">::</span><span class="keyword">new</span><span class="special">(</span><span class="identifier">p</span><span class="special">)</span> <span class="identifier">T</span><span class="special">();</span>
+  <span class="special">}</span> <span class="keyword">else</span> <span class="special">{</span>
+    <span class="keyword">return</span> <span class="keyword">nullptr</span><span class="special">;</span>
+  <span class="special">}</span>
+<span class="special">}</span>
+
+<span class="keyword">struct</span> <span class="keyword">alignas</span><span class="special">(</span><span class="number">16</span><span class="special">)</span> <span class="identifier">type</span> <span class="special">{</span>
+  <span class="keyword">float</span> <span class="identifier">data</span><span class="special">[</span><span class="number">4</span><span class="special">];</span>
+<span class="special">};</span>
+
+<span class="keyword">int</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+  <span class="keyword">char</span> <span class="identifier">c</span><span class="special">[</span><span class="number">48</span><span class="special">];</span>
+  <span class="identifier">type</span><span class="special">*</span> <span class="identifier">p</span> <span class="special">=</span> <span class="identifier">make</span><span class="special">&lt;</span><span class="identifier">type</span><span class="special">&gt;(</span><span class="identifier">c</span><span class="special">,</span> <span class="keyword">sizeof</span> <span class="identifier">c</span><span class="special">);</span>
+  <span class="keyword">if</span> <span class="special">(</span><span class="identifier">p</span><span class="special">)</span> <span class="special">{</span>
+    <span class="identifier">p</span><span class="special">-&gt;~</span><span class="identifier">type</span><span class="special">();</span>
+  <span class="special">}</span>
+<span class="special">}</span>
+</pre>
+</div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
 <td align="left"></td>
@@ -46,7 +85,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="rationale.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="tutorial/align.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="rationale.html"><img src="http://boost.org/doc/libs/release/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="http://boost.org/doc/libs/release/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="tutorial/aligned_alloc.html"><img src="http://boost.org/doc/libs/release/doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

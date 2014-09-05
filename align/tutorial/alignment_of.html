@@ -35,7 +35,7 @@
 <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">utility</span> <span class="special">{</span>
   <span class="keyword">static_assert</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">alignment</span><span class="special">::</span>
-    <span class="identifier">alignment_of</span><span class="special">(</span><span class="identifier">T</span><span class="special">)</span> <span class="special">==</span> <span class="number">16</span><span class="special">,</span> <span class="string">""</span><span class="special">);</span>
+    <span class="identifier">alignment_of</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">value</span> <span class="special">==</span> <span class="number">16</span><span class="special">,</span> <span class="string">""</span><span class="special">);</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="identifier">utility</span><span class="special">()</span>
     <span class="special">:</span> <span class="identifier">object</span><span class="special">()</span> <span class="special">{</span>
